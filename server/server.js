@@ -9,21 +9,22 @@ const path = require("path");
 
 const app = express();
 
+const appidcfg = appidConfig.APPID_CONFIG;
+
 app.use(
   session({
-    secret: appidConfig.secret,
+    secret: appidcfg.secret,
     resave: true,
     saveUninitialized: true,
   })
 );
 
-const appidcfg = JSON.parse(appidConfig.APPID_CONFIG);
 passport.use(
   new WebAppStrategy({
     tenantId: appidcfg.tenantId,
-    clientId: appidConfig.client_id,
-    secret: appidConfig.secret,
-    oauthServerUrl: appidcfg.oauthServerUrl,
+    clientId: appidcfg.clientId,
+    secret: appidcfg.secret,
+    oauthServerUrl: appidcfg.oAuthServerUrl,
     redirectUri: appidConfig.application_url + CALLBACK_URL,
   })
 );
