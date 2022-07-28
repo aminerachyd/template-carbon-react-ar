@@ -61,6 +61,16 @@ spec:
               value: ""
             - name: LOG_LEVEL
               value: {{ .Values.logLevel | quote }}
+            - name: APPID_CONFIG
+              valueFrom:
+                secretKeyRef:
+                    name: {{ .Values.appidBinding | quote }}
+                    key: binding
+            - name: APP_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: appid-ui
+                  key: route
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

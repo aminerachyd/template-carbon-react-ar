@@ -1,0 +1,5 @@
+{
+   "APPID_CONFIG": ""{\"tenantId\":\"e7427eca-78c4-4b9d-9df2-1ac5ae7d6eb5\",\"oauthServerUrl\":\"https://eu-de.appid.cloud.ibm.com/oauth/v4/e7427eca-78c4-4b9d-9df2-1ac5ae7d6eb5\",\"clientId\": \"8378877f-f4eb-4798-b0f3-296f9eb151f8\", \"secret\": \"YmIyNmEzNzAtMDRhZC00N2JjLTgwMjQtZGQ4ODY3YjU3YTgx\"}",
+    "application_url":"https://template-carbon-react-ar-dev-amine.lab-demos-ocp-0a90eebd1b04c36c8a65993d6a0c3f93-0000.eu-de.containers.appdomain.cloud"
+}
+

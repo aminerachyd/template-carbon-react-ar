@@ -41,3 +41,5 @@ vcsInfo:
   branch: ""
 
 runtime: js
+
+appidBinding: "binding-workshop-team-one-appid"
