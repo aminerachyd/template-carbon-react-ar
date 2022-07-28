@@ -66,11 +66,6 @@ spec:
                 secretKeyRef:
                     name: {{ .Values.appidBinding | quote }}
                     key: binding
-            - name: APP_URI
-              valueFrom:
-                configMapKeyRef:
-                  name: appid-ui
-                  key: route
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
