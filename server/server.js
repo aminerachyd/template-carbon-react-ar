@@ -19,6 +19,16 @@ app.use(
   })
 );
 
+passport.serializeUser(function (user, cb) {
+  cb(null, user);
+});
+passport.deserializeUser(function (obj, cb) {
+  cb(null, obj);
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 passport.use(
   new WebAppStrategy({
     tenantId: appidcfg.tenantId,
@@ -29,15 +39,8 @@ passport.use(
   })
 );
 
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-});
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-});
-
-app.use(passport.initialize());
-app.use(passport.session());
+app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
+app.use(passport.authenticate(WebAppStrategy.STRATEGY_NAME));
 
 app.use(express.static(path.join(__dirname, "../build")));
 
